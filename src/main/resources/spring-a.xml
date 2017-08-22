@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+
+
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+<!--启用shiro授权注解拦截方式-->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!--权限管理器-->
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/user/login.do"/>
+        <property name="successUrl" value="/"/>
+        <property name="unauthorizedUrl" value="/views/loginFailure.html"/>
+        <property name="filterChainDefinitions">
+            <value>
+                <!--不需要权限即可访问的页面-->
+                /user/login.do=anon
+                /user/loginSuccess.do=login
+            </value>
+        </property>
+
+        <property name="filters">
+            <util:map>
+                <entry key = "login" value-ref="login"></entry>
+            </util:map>
+        </property>
+    </bean>
+    
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="myRealm"/>
+        <property name="cacheManager" ref="cacheManager"/>
+    </bean>
+
+    <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"/>
+
+    <bean id="myRealm" class="com.gunn.common.shiro.realm.simpleRealm"/>
+
+
+    <bean id="login" class="com.gunn.common.shiro.filter.LoginFilter"/>
+
+
+
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+</beans>

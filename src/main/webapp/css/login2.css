@@ -1,0 +1,45 @@
+/*
+* @Author: Gunn
+* @Date:   2017-08-13 10:35:50
+* @Last Modified by:   Gunn
+* @Last Modified time: 2017-08-13 13:05:43
+*/
+body{
+	background-color: transparent;
+}
+.form-horizontal{
+	margin: auto;
+}
+
+.container{
+  margin: auto;
+  margin-top: 200px;
+  background-color: transparent;
+}
+.form{
+	margin: auto;
+	text-align: center;
+	width: 400px;
+	height: 100%;
+	background-color: white;
+	border: 1px solid #0e0e0e;
+	border-radius: 8px;
+} 
+.form-login{
+	max-width: 300px;
+	margin: auto;
+}
+.btn-primary,.btn-info{
+	width: 49%;
+}
+.custom-btn-group{
+	margin: 10px;
+}
+.div-form{
+	border-radius: 8px;
+	background-color: transparent;
+}
+.form-control{
+	margin-top: 25px;
+	background-color: transparent;
+}
