@@ -1,6 +1,6 @@
-package com.gunn.model.sys.controller;
+package com.gunn.module.sys.controller;
 
-import com.gunn.model.sys.entity.User;
+import com.gunn.module.sys.entity.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.DisabledAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;

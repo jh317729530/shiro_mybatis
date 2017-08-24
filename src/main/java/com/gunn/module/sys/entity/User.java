@@ -1,4 +1,4 @@
-package com.gunn.model.sys.entity;
+package com.gunn.module.sys.entity;
 
 public class User {
     private String userId;

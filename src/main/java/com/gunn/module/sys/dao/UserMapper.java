@@ -1,6 +1,6 @@
-package com.gunn.model.sys.dao;
+package com.gunn.module.sys.dao;
 
-import com.gunn.model.sys.entity.User;
+import com.gunn.module.sys.entity.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.Map;

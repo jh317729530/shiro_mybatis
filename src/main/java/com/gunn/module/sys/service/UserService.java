@@ -1,7 +1,7 @@
-package com.gunn.model.sys.service;
+package com.gunn.module.sys.service;
 
-import com.gunn.model.sys.dao.UserMapper;
-import com.gunn.model.sys.entity.User;
+import com.gunn.module.sys.dao.UserMapper;
+import com.gunn.module.sys.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
