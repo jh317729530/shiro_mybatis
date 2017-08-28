@@ -1,7 +1,7 @@
 package com.gunn.common.shiro.filter;
 
 import com.gunn.common.shiro.ShiroFilterUtil;
-import com.gunn.model.sys.entity.User;
+import com.gunn.module.sys.entity.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.web.filter.AccessControlFilter;
 

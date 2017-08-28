@@ -1,5 +1,8 @@
 package com.gunn.module.sys.controller;
 
+import com.gunn.common.session.RedisSession;
+import com.gunn.common.session.SecurityServletRequestWrapper;
+import com.gunn.common.session.SessionUtil;
 import com.gunn.module.sys.entity.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.DisabledAccountException;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,5 +55,14 @@ public class UserLoginController {
     @RequestMapping("loginFailure")
     public ModelAndView loginFailue(){
         return new ModelAndView("loginFailure");
+    }
+
+
+    @RequestMapping("readSession")
+    public String readSession(SecurityServletRequestWrapper request) {
+        RedisSession session = request.getSession();
+        System.out.println(session.getId());
+        SessionUtil.saveSessionToRedis(session);
+        return "asd";
     }
 }

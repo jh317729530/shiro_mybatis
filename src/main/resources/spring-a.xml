@@ -7,6 +7,9 @@
 
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
+    <!--会话id生成器-->
+    <bean id="sessionIdGenerator" class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>
+
 <!--启用shiro授权注解拦截方式-->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <!--权限管理器-->
@@ -32,7 +35,10 @@
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="myRealm"/>
         <property name="cacheManager" ref="cacheManager"/>
+        <property name="sessionManager"
     </bean>
+
+        <bean id="sessionManager" class="DefaultWebSessionManager"
 
     <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"/>
 
@@ -41,6 +47,11 @@
 
     <bean id="login" class="com.gunn.common.shiro.filter.LoginFilter"/>
 
+
+    <bean id="redisSessionDAO" class="com.gunn.common.shiro.session.RedisSessionDAO">
+        <property name="sessionIdGenerator" ref="sessionIdGenerator"/>
+        <property name="jedisManager" ref="jedisManager"/>
+    </bean>
 
 
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />

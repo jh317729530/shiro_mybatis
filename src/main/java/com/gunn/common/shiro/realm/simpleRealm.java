@@ -1,7 +1,7 @@
 package com.gunn.common.shiro.realm;
 
-import com.gunn.model.sys.entity.User;
-import com.gunn.model.sys.service.UserService;
+import com.gunn.module.sys.entity.User;
+import com.gunn.module.sys.service.UserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
